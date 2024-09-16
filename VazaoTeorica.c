@@ -39,9 +39,9 @@ void calculaVazaoTeorica(){
 
     for (int i = 0; i < 1000; i++){
         float hc = calculaHc(p, v2, D, u, e, g, L, Ks);
-        float bernoulli = v2 / (2*g) + z2 + hc;
+        float bernoulli = (v2*v2) / (2*g) + z2 + hc;
         
-        printf("Valor da bernoulli = %f\n", bernoulli);
+        printf("Valor da bernoulli = %.10f\n", bernoulli);
         
         if (bernoulli > -0.00001 && bernoulli < 0.00001){
             printf("Valor de v2 = %f esta proximo\n", v2);
@@ -86,6 +86,6 @@ float calculaHc(float p, float v, float D, float u, float e, float g, float L, f
     printf("f: %f\n", f);
     hcd = (f * L * pow(v, 2)) / (D * 2 * g); // perda de carga distribuída
     hcl = Ks * pow(v, 2) / (2 * g); // perda de carga localizada
-    printf("hc: %f\n", hcd+hcl);
+    printf("hc: %.10f\n", hcd+hcl);
     return hcd + hcl;
 }
